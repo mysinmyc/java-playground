@@ -3,6 +3,11 @@
 
 *.iml
 
+.settings
+.project
+.classpath
+.factorypath
+
 # Package Files #
 *.jar
 *.war

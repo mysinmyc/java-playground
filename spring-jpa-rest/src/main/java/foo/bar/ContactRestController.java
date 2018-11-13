@@ -41,7 +41,6 @@ public class ContactRestController {
 
     @PutMapping("/contacts/{id}")
     public ResponseEntity<Object> updateStudent(@RequestBody Contact contact, @PathVariable Long id) {
-
         if (!contact.getId().equals(id)) {
             throw new RuntimeException("????");
         }
