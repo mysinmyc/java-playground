@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<button onclick="location='/contacts/_add'">Add Contact</button>
+
+<table>
+
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Number</td>
+        <td>&nbsp</td>
+    </tr>
+
+
+    <tr th:each="contact: ${contacts}">
+        <td th:text="${contact.id}"></td>
+        <td th:text="${contact.name}"></td>
+        <td th:text="${contact.address}"></td>
+        <td th:text="${contact.number}"></td>
+        <td><a th:href="@{/contacts/{id}(id=${contact.id})}">edit</a> <a th:href="@{/contacts/{id}/_delete(id=${contact.id})}">delete</a></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
