@@ -1,25 +1,10 @@
-j2ee-rest
+j2ee-vaadin8
 =========
 
-Test JAX-RS application to perform crud operation on entities persisted with JPA
+Sample vaadin8 UI.
 
+#DISCLAIMER
 
-# Runtime 
-## Target application server
-
-This application has been developed to be executed on [https://openliberty.io/](url "IBM Open Liberty") as preferred runtime   
-
-## Frameworks used
-CDI (JBOSS Weld implementation)
-JPA (EclipseLink implementation)
-JAX-RS  (Apache CXF implementation)
-
-
-## Embedded database
-H2 in memory
-
-## api documentation
-Microprofile open API 
-
+Vaadin 8 is not the current framework implementation. For new project please evaluate vaadin flow (vaadin 10+)  
 
 
