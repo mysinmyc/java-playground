@@ -9,8 +9,8 @@ Mongodb
 by default application is configured to connect to a local unprotected mongodb.
  
 To connect to a different host, set the following environment variables (or command line arguments):
-* mongo-location=remote
-* mongo-uri=*uri of mongodb (mongodb://{user}:{password}@{host}:{port}/{collecation})*
+* SPRING_PROFILES_ACTIVE=mongoremote
+* MONGO_URI=*uri of mongodb (mongodb://{user}:{password}@{host}:{port}/{db})*
 
 
 How to test
