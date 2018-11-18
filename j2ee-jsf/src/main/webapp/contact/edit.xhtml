@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/default.xhtml">
+	<ui:define name="title">
+		#{contactBasket.contactLabel}
+	</ui:define>
+
+	<ui:define name="body">
+		<h:form>
+			<table>
+				<tr>
+					<td>name</td>
+					<td><h:inputText value="#{contactBasket.contact.name}" /></td>
+				</tr>
+				<tr>
+					<td>address</td>
+					<td><h:inputText value="#{contactBasket.contact.address}" /></td>
+				</tr>
+				<tr>
+					<td>number</td>
+					<td><h:inputText value="#{contactBasket.contact.number}" /></td>
+				</tr>
+			</table>
+			<h:commandButton
+				action="#{contactController.save(contactBasket.contact)}" />
+		</h:form>
+	</ui:define>
+</ui:composition>

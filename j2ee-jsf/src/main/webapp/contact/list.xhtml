@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/default.xhtml">
+	<ui:define name="title">
+		List contacts
+		</ui:define>
+
+	<ui:define name="body">
+		<h:form>
+
+
+			<h:dataTable value="#{contactRepository.list()}" var="contact">
+				<h:column>
+					<h:commandLink action="#{contactController.edit(contact)}"
+						value="Edit" />
+				</h:column>
+
+				<h:column>
+					<h:commandLink action="#{contactController.delete(contact)}"
+						value="Delete" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>#{contact.name}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Addess</f:facet>#{contact.address}
+            </h:column>
+				<h:column>
+					<f:facet name="header">Number</f:facet>#{contact.number}
+            </h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
