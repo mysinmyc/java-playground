@@ -1,5 +1,6 @@
 package foo.bar.backend;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -39,5 +40,12 @@ public class ContactRepository {
         	throw new ContactNotFoundException("no contact with id "+id);
         }
         return foundContact;
+    }
+    
+    //WORKAROUND: mariadb throws an exception when the schema is generated in a XA transaction.
+    @PostConstruct
+    @Transactional(Transactional.TxType.NOT_SUPPORTED)
+    public void init() {
+    	entityManager.isOpen();
     }
 }
