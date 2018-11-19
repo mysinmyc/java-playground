@@ -1,9 +1,11 @@
 version: '3'
 services:
   web:
-    build: ../container 
+    image: mysinmyc/java-sample-spring-mongodb-rest
+    deploy: 
+       replicas: 2
     ports:
-    - "8080"
+      - 8080:8080
     networks:
     - internalnet
     depends_on:
