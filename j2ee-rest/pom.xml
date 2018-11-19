@@ -42,7 +42,7 @@
 						<executions>
 							<execution>
 								<id>copy-h2</id>
-								<phase>package</phase>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>copy</goal>
 								</goals>
@@ -87,7 +87,7 @@
 						<executions>
 							<execution>
 								<id>copy-h2</id>
-								<phase>package</phase>
+								<phase>prepare-package</phase>
 								<goals>
 									<goal>copy</goal>
 								</goals>
