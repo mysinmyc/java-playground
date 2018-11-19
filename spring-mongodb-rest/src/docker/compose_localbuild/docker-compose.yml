@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: ../container 
+    ports:
+    - "8080"
+    networks:
+    - internalnet
+  mongodb:
+    image: mongo
+    networks:
+    - internalnet
+
+networks:
+   internalnet:
