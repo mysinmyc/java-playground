@@ -148,7 +148,7 @@
 						<version>${wlp.version}</version>
 						<type>zip</type>
 					</assemblyArtifact>
-					<serverName>${project.artifactId}_${db.target}</serverName>
+					<serverName>${project.artifactId}Server_${db.target}</serverName>
 					<configFile>src/main/liberty/config/${db.target}/server.xml</configFile>
 					<include>${packaging.type}</include>
 				</configuration>
