@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    image: mysinmyc/java-sample-j2ee-rest:mariadb
+    deploy:
+       replicas: 2
+    ports:
+    - "9080"
+    networks:
+    - internalnet
+    depends_on:
+    - mariadb
+    env_file:
+    - ./mariadb_client.env 
+    environment:
+    - MYSQL_HOST=mariadb
+  mariadb:
+    image: mariadb
+    networks:
+    - internalnet
+    env_file:
+    - ./mariadb_client.env 
+    environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD=true
+networks:
+   internalnet:
