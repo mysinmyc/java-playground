@@ -1,0 +1,79 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: j2ee-extdb-secret
+data:
+  username: dGVzdHVzZXI=
+  password: cGFzc3dvcmQ=
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: j2ee-extdb
+spec:
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: j2ee-extdb
+subsets:
+  - addresses:
+      - ip: "REPLACE WITH REMOTE DB IP"
+    ports:
+      - port: 3306
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: j2ee-extweb
+  labels:
+    app: j2ee-extweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+       app: j2ee-extweb
+  template:
+    metadata:
+      labels:
+        app: j2ee-extweb
+    spec:
+      containers:
+      - name: web
+        image: mysinmyc/java-sample-j2ee-rest:mariadb
+        ports:
+        - containerPort: 9080
+        env:
+        - name: MYSQL_USER
+          valueFrom:
+           secretKeyRef:
+             name: j2ee-extdb-secret
+             key: username
+        - name: MYSQL_PASSWORD
+          valueFrom:
+           secretKeyRef:
+             name: j2ee-extdb-secret
+             key: password
+        - name: MYSQL_DATABASE
+          value: test 
+        - name: MYSQL_HOST
+          value: j2ee-extdb
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: j2ee-extweb
+spec:
+  selector:
+    app: j2ee-extweb
+  ports:
+  - protocol: TCP
+    port: 9080
+    targetPort: 9080
+  type: NodePort
+  sessionAffinity: None
+  externalTrafficPolicy: Cluster
