@@ -104,6 +104,26 @@ spec:
   - protocol: TCP
     port: 9080
     targetPort: 9080
-  type: NodePort
-  sessionAffinity: None
-  externalTrafficPolicy: Cluster
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: j2ee-rest-web
+  annotations:
+#    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+#  backend:
+#   serviceName: j2ee-rest-web
+#   servicePort: 9080
+  rules:
+  - host: "j2eerest.example.com"
+    http:
+      paths:
+      - path: /j2ee-rest
+        backend:
+          serviceName: j2ee-rest-web
+          servicePort: 9080
+      - path: /openapi
+        backend:
+          serviceName: j2ee-rest-web
+          servicePort: 9080
