@@ -4,7 +4,7 @@ j2ee-jsf
 Test JSF application to perform crud operation on entities persisted with JPA 
 
 # DISCLAIMER 
-I'm not a JSF fun, I never well understood framework usage for my uses cases. In this sample I've limited JSF stuff by using CDI integration    
+I'm not a JSF fan, I never well understood framework usage for my uses cases. In this sample I've limited JSF stuff by using CDI integration    
 
 # Runtime 
 ## Target application server
