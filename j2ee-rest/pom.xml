@@ -19,7 +19,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<wlp.version>[18.0.0.3,)</wlp.version>
-		<h2.version>1.4.197</h2.version>
+		<h2.version>2.0.206</h2.version>
 		<mariadb.version>2.3.0</mariadb.version>
 		<packaging.type>usr</packaging.type>
 	</properties>
