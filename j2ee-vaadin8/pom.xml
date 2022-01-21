@@ -22,7 +22,7 @@
 		<!-- <packaging.type>minify,runnable</packaging.type> -->
 		<packaging.type>usr</packaging.type>
 		<wlp.version>[18.0.0.3,)</wlp.version>
-		<h2.version>1.4.197</h2.version>
+		<h2.version>2.1.210</h2.version>
 		<vaadinCdi.version>2.0.0</vaadinCdi.version>
 	</properties>
 
